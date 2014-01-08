@@ -1,6 +1,8 @@
 TEMPLATE = app
 TARGET = litecoin-qt
 macx:TARGET = "Litecoin-Qt"
+TARGET = nuyen-qt
+macx:TARGET = "nuyen-Qt"
 VERSION = 0.8.6.1
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
@@ -321,6 +323,7 @@ HEADERS += src/qt/test/uritests.h
 DEPENDPATH += src/qt/test
 QT += testlib
 TARGET = litecoin-qt_test
+TARGET = nuyen-qt_test
 DEFINES += BITCOIN_QT_TEST
   macx: CONFIG -= app_bundle
 }
@@ -421,6 +424,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhan
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
 macx:ICON = src/qt/res/icons/litecoin.icns
+macx:ICON = src/qt/res/icons/nuyen.icns
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread
 macx:QMAKE_CXXFLAGS_THREAD += -pthread

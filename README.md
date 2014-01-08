@@ -43,5 +43,5 @@ Copyright
 
 * Harebrained Schemes(http://harebrained-schemes.com/) the creators of ShadowRun Returns
 * Bitcoin Crew
-* Litecoin Crew
+* nuyen Crew
 
