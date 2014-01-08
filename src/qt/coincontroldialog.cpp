@@ -95,9 +95,10 @@ CoinControlDialog::CoinControlDialog(QWidget *parent) :
     // click on checkbox
     connect(ui->treeWidget, SIGNAL(itemChanged( QTreeWidgetItem*, int)), this, SLOT(viewItemChanged( QTreeWidgetItem*, int)));
     
+    // need to double check what this was, it was disliked on osx 10.8 with qt5
     // click on header
-    ui->treeWidget->header()->setClickable(true);
-    connect(ui->treeWidget->header(), SIGNAL(sectionClicked(int)), this, SLOT(headerSectionClicked(int)));
+    //ui->treeWidget->header()->setClickable(true);
+    //onnect(ui->treeWidget->header(), SIGNAL(sectionClicked(int)), this, SLOT(headerSectionClicked(int)));
     
     // ok button
     connect(ui->buttonBox, SIGNAL(clicked( QAbstractButton*)), this, SLOT(buttonBoxClicked(QAbstractButton*)));
