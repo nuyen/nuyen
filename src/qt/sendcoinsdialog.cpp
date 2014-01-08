@@ -179,8 +179,6 @@ void SendCoinsDialog::on_sendButton_clicked()
         break;
     case WalletModel::OK:
         accept();
-        CoinControlDialog::coinControl->UnSelectAll();
-        coinControlUpdateLabels();
         break;
     }
     fNewRecipientAllowed = true;
@@ -244,8 +242,6 @@ void SendCoinsDialog::updateRemoveEnabled()
         }
     }
     setupTabChain(0);
-
-    coinControlUpdateLabels();
 }
 
 void SendCoinsDialog::removeEntry(SendCoinsEntry* entry)

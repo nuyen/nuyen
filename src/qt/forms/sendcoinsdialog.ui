@@ -14,8 +14,17 @@
    <string>Send Coins</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
+   <property name="leftMargin">
+    <number>0</number>
+   </property>
+   <property name="topMargin">
+    <number>0</number>
+   </property>
+   <property name="rightMargin">
+    <number>0</number>
+   </property>
    <property name="bottomMargin">
-    <number>8</number>
+    <number>0</number>
    </property>
    <item>
     <widget class="QWebView" name="webView">
@@ -36,7 +45,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>824</width>
+        <width>848</width>
         <height>76</height>
        </rect>
       </property>
