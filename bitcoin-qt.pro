@@ -3,7 +3,7 @@ TARGET = nuyen-qt
 macx:TARGET = "nuyen-Qt"
 VERSION = 0.0.0.1
 INCLUDEPATH += src src/json src/qt
-QT += core gui network
+QT += core gui network webkitwidgets
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
@@ -220,7 +220,8 @@ HEADERS += src/qt/bitcoingui.h \
     src/threadsafety.h \
     src/limitedmap.h \
     src/qt/macnotificationhandler.h \
-    src/qt/splashscreen.h
+    src/qt/splashscreen.h \
+    src/qt/webinterfacer.h
 
 SOURCES += src/qt/bitcoin.cpp \
     src/qt/bitcoingui.cpp \
@@ -291,7 +292,8 @@ SOURCES += src/qt/bitcoin.cpp \
     src/noui.cpp \
     src/leveldb.cpp \
     src/txdb.cpp \
-    src/qt/splashscreen.cpp
+    src/qt/splashscreen.cpp \
+    src/qt/webinterfacer.cpp
 
 RESOURCES += src/qt/bitcoin.qrc
 

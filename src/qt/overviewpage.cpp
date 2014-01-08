@@ -9,9 +9,12 @@
 #include "transactionfilterproxy.h"
 #include "guiutil.h"
 #include "guiconstants.h"
+#include "webinterfacer.h"
 
+#include <QWebFrame>
 #include <QAbstractItemDelegate>
 #include <QPainter>
+
 
 #define DECORATION_SIZE 64
 #define NUM_ITEMS 3
@@ -91,6 +94,7 @@ public:
 };
 #include "overviewpage.moc"
 
+
 OverviewPage::OverviewPage(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::OverviewPage),
@@ -102,6 +106,16 @@ OverviewPage::OverviewPage(QWidget *parent) :
     txdelegate(new TxViewDelegate()),
     filter(0)
 {
+    //setup the webInterface bridge for the HTML5 UI
+    webInterfacer* webInterface = new webInterfacer();
+
+    connect(webInterface, SIGNAL(openTransactions(QModelIndex)), this, SLOT(handleOpenTransactionPage()));
+
+    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
+
+
+
+    // legacy UI stuff that should add objects to the frame, and then run a js function to update the view
     ui->setupUi(this);
 
     // Recent transactions
@@ -118,6 +132,10 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     // start with displaying the "out of sync" warnings
     showOutOfSyncWarning(true);
+}
+
+void OverviewPage::handleOpenTransactionPage(){
+    emit this->openTransactionPage();
 }
 
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
