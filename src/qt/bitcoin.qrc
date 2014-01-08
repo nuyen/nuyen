@@ -1,4 +1,4 @@
-<!DOCTYPE RCC><RCC version="1.0">
+<RCC>
     <qresource prefix="/icons">
         <file alias="bitcoin">res/icons/bitcoin.png</file>
         <file alias="address-book">res/icons/address-book.png</file>
@@ -97,5 +97,24 @@
         <file alias="uk">locale/bitcoin_uk.qm</file>
         <file alias="zh_CN">locale/bitcoin_zh_CN.qm</file>
         <file alias="zh_TW">locale/bitcoin_zh_TW.qm</file>
+        <file>res/web/jquery.tablesorter.js</file>
+        <file>res/web/tables.js</file>
+    </qresource>
+    <qresource prefix="/web">
+        <file>res/web/index.html</file>
+        <file>res/web/bootstrap.css</file>
+        <file>res/web/morris-0.4.3.min.css</file>
+        <file>res/web/font-awesome.css</file>
+        <file>res/web/raphael-min.js</file>
+        <file>res/web/morris-0.4.3.min.js</file>
+        <file>res/web/bootstrap.js</file>
+        <file>res/web/jquery-1.10.2.js</file>
+        <file>res/web/chart-data-morris.js</file>
+        <file>res/web/sb-admin.css</file>
+        <file>res/web/fontawesome-webfont.eot</file>
+        <file>res/web/fontawesome-webfont.svg</file>
+        <file>res/web/fontawesome-webfont.ttf</file>
+        <file>res/web/fontawesome-webfont.woff</file>
+        <file>res/web/FontAwesome.otf</file>
     </qresource>
 </RCC>
