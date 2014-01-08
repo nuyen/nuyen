@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <script type="text/javascript">
+
+    </script>
 
     <title>Dashboard - SB Admin</title>
 
@@ -33,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand">0.00 NYN</a>
+          <a class="navbar-brand" id="walletBalance"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -357,13 +360,20 @@
 
     </div><!-- /#wrapper -->
     <!-- JavaScript -->
-    <script src="jquery-1.10.2.js"></script>
 
+
+    <script src="jquery-1.10.2.js"></script>
     <script type="text/javascript">
         $(function(){
+
+            //update some of the balances
+            var balance = qtInterface.balance ? qtInterface.balance : "0.00 NYN";
+            $("#walletBalance").text(balance);
+
+
             //bindings for menu actions to c++ object
             $("#overviewlink").click(function(){
-
+                qtInterface.jsOpenTransactions();
             });
 
             $("#sendlink").click(function(){
@@ -378,7 +388,6 @@
             $("#addresslink").click(function(){
                 qtInterface.jsOpenAddressPage();
             });
-
         });
     </script>
 

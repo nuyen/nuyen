@@ -108,16 +108,16 @@ OverviewPage::OverviewPage(QWidget *parent) :
     txdelegate(new TxViewDelegate()),
     filter(0)
 {
-
-
     ui->setupUi(this);
+    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
+
 
     connect(webInterface, SIGNAL(openTransactions()), this, SLOT(handleOpenTransactionPage()));
     connect(webInterface, SIGNAL(openSendPage(QString)), this, SLOT(handleOpenSendPage(QString)));
     connect(webInterface, SIGNAL(openRecievePage(QString)), this, SLOT(handleOpenRecievePage(QString)));
     connect(webInterface, SIGNAL(openAddressBookPage()), this, SLOT(handleOpenAddressBookPage()));
 
-    connect(ui->webView,SIGNAL(loadFinished(bool)), this, SLOT(handleWebviewLoad(bool)));
+    connect(ui->webView,SIGNAL(loadFinished(bool)), this, SLOT(handleWebviewLoad()));
 
     // Recent transactions
     //ui->listTransactions->setItemDelegate(txdelegate);
@@ -137,7 +137,7 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
 
 // handle web events
-void OverviewPage::handleWebviewLoad(bool ok){
+void OverviewPage::handleWebviewLoad(){
     ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
 }
 void OverviewPage::handleOpenTransactionPage(){
@@ -171,13 +171,14 @@ void OverviewPage::setBalance(qint64 balance, qint64 unconfirmedBalance, qint64 
     currentBalance = balance;
     currentUnconfirmedBalance = unconfirmedBalance;
     currentImmatureBalance = immatureBalance;
-    //ui->labelBalance->setText(BitcoinUnits::formatWithUnit(unit, balance));
-    //ui->labelUnconfirmed->setText(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance));
-    //ui->labelImmature->setText(BitcoinUnits::formatWithUnit(unit, immatureBalance));
+
+    webInterface->setProperty("balance",QVariant(BitcoinUnits::formatWithUnit(unit, balance)));
+    webInterface->setProperty("unconfirmedBalance",QVariant(BitcoinUnits::formatWithUnit(unit, unconfirmedBalance)));
+    webInterface->setProperty("immatureBalance",QVariant(BitcoinUnits::formatWithUnit(unit, immatureBalance)));
 
     // only show immature (newly mined) balance if it's non-zero, so as not to complicate things
     // for the non-mining users
-    bool showImmature = immatureBalance != 0;
+    //bool showImmature = immatureBalance != 0;
     //ui->labelImmature->setVisible(showImmature);
     //ui->labelImmatureText->setVisible(showImmature);
 }
@@ -212,7 +213,6 @@ void OverviewPage::setWalletModel(WalletModel *model)
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getUnconfirmedBalance(), model->getImmatureBalance());
         connect(model, SIGNAL(balanceChanged(qint64, qint64, qint64)), this, SLOT(setBalance(qint64, qint64, qint64)));
-
         connect(model->getOptionsModel(), SIGNAL(displayUnitChanged(int)), this, SLOT(updateDisplayUnit()));
     }
 
