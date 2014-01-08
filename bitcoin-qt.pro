@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET = nuyen-qt
 macx:TARGET = "nuyen-Qt"
-VERSION = 0.8.6.1
+VERSION = 0.0.0.1
 INCLUDEPATH += src src/json src/qt
 QT += core gui network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
