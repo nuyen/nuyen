@@ -57,6 +57,7 @@ private slots:
     void handleOpenSendPage(QString);
     void handleOpenRecievePage(QString);
     void handleOpenAddressBookPage();
+    void handleWebviewLoad(bool);
 };
 
 #endif // OVERVIEWPAGE_H

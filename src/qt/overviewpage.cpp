@@ -94,6 +94,8 @@ public:
 };
 #include "overviewpage.moc"
 
+//setup the webInterface bridge for the HTML5 UI
+webInterfacer* webInterface = new webInterfacer();\
 
 OverviewPage::OverviewPage(QWidget *parent) :
     QWidget(parent),
@@ -107,18 +109,15 @@ OverviewPage::OverviewPage(QWidget *parent) :
     filter(0)
 {
 
-    // legacy UI stuff that should add objects to the frame, and then run a js function to update the view
-    ui->setupUi(this);
 
-    //setup the webInterface bridge for the HTML5 UI
-    webInterfacer* webInterface = new webInterfacer();
+    ui->setupUi(this);
 
     connect(webInterface, SIGNAL(openTransactions()), this, SLOT(handleOpenTransactionPage()));
     connect(webInterface, SIGNAL(openSendPage(QString)), this, SLOT(handleOpenSendPage(QString)));
     connect(webInterface, SIGNAL(openRecievePage(QString)), this, SLOT(handleOpenRecievePage(QString)));
     connect(webInterface, SIGNAL(openAddressBookPage()), this, SLOT(handleOpenAddressBookPage()));
 
-    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
+    connect(ui->webView,SIGNAL(loadFinished(bool)), this, SLOT(handleWebviewLoad(bool)));
 
     // Recent transactions
     //ui->listTransactions->setItemDelegate(txdelegate);
@@ -136,7 +135,11 @@ OverviewPage::OverviewPage(QWidget *parent) :
     showOutOfSyncWarning(true);
 }
 
+
 // handle web events
+void OverviewPage::handleWebviewLoad(bool ok){
+    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
+}
 void OverviewPage::handleOpenTransactionPage(){
     emit this->openTransactionPage();
 }
