@@ -106,17 +106,14 @@ OverviewPage::OverviewPage(QWidget *parent) :
     txdelegate(new TxViewDelegate()),
     filter(0)
 {
-    //setup the webInterface bridge for the HTML5 UI
-    webInterfacer* webInterface = new webInterfacer();
-
-    connect(webInterface, SIGNAL(openTransactions(QModelIndex)), this, SLOT(handleOpenTransactionPage()));
-
-    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
-
-
 
     // legacy UI stuff that should add objects to the frame, and then run a js function to update the view
     ui->setupUi(this);
+
+    //setup the webInterface bridge for the HTML5 UI
+    webInterfacer* webInterface = new webInterfacer();
+    connect(webInterface, SIGNAL(openTransactions(QModelIndex)), this, SLOT(handleOpenTransactionPage()));
+    ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
 
     // Recent transactions
     ui->listTransactions->setItemDelegate(txdelegate);

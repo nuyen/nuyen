@@ -7,7 +7,6 @@ class webInterfacer : public QObject
 {
 Q_OBJECT
 public slots:
-    QString getInfo();
     void jsOpenTransactions();
     void jsOpenSendPage();
     void jsOpenRecievePage();
