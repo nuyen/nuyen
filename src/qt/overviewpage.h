@@ -34,6 +34,9 @@ public slots:
 signals:
     void transactionClicked(const QModelIndex &index);
     void openTransactionPage();
+    void openSendPage(QString);
+    void openRecievePage(QString);
+    void openAddressBookPage();
 
 private:
     Ui::OverviewPage *ui;
@@ -51,6 +54,9 @@ private slots:
     void handleTransactionClicked(const QModelIndex &index);
     void updateAlerts(const QString &warnings);
     void handleOpenTransactionPage();
+    void handleOpenSendPage(QString);
+    void handleOpenRecievePage(QString);
+    void handleOpenAddressBookPage();
 };
 
 #endif // OVERVIEWPAGE_H

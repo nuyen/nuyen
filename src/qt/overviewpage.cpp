@@ -112,7 +112,12 @@ OverviewPage::OverviewPage(QWidget *parent) :
 
     //setup the webInterface bridge for the HTML5 UI
     webInterfacer* webInterface = new webInterfacer();
-    connect(webInterface, SIGNAL(openTransactions(QModelIndex)), this, SLOT(handleOpenTransactionPage()));
+
+    connect(webInterface, SIGNAL(openTransactions()), this, SLOT(handleOpenTransactionPage()));
+    connect(webInterface, SIGNAL(openSendPage(QString)), this, SLOT(handleOpenSendPage(QString)));
+    connect(webInterface, SIGNAL(openRecievePage(QString)), this, SLOT(handleOpenRecievePage(QString)));
+    connect(webInterface, SIGNAL(openAddressBookPage()), this, SLOT(handleOpenAddressBookPage()));
+
     ui->webView->page()->currentFrame()->addToJavaScriptWindowObject(QString("qtInterface"), webInterface);
 
     // Recent transactions
@@ -131,10 +136,21 @@ OverviewPage::OverviewPage(QWidget *parent) :
     showOutOfSyncWarning(true);
 }
 
+// handle web events
 void OverviewPage::handleOpenTransactionPage(){
     emit this->openTransactionPage();
 }
+void OverviewPage::handleOpenSendPage(QString){
+    emit openSendPage(QString(""));
+}
+void OverviewPage::handleOpenRecievePage(QString){
+    emit openRecievePage(QString(""));
+}
+void OverviewPage::handleOpenAddressBookPage(){
+    emit openAddressBookPage();
+}
 
+// legacy, left to translate to webui
 void OverviewPage::handleTransactionClicked(const QModelIndex &index)
 {
     if(filter)

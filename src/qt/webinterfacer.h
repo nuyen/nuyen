@@ -13,7 +13,7 @@ public slots:
     void jsOpenAddressPage();
 
 signals:
-    void openTransactions(const QModelIndex &index);
+    void openTransactions();
     void openSendPage(QString);
     void openRecievePage(QString);
     void openAddressBookPage();

@@ -2,7 +2,7 @@
 
 void webInterfacer::jsOpenTransactions()
 {
-
+    emit this->openTransactions();
 }
 
 void webInterfacer::jsOpenSendPage()

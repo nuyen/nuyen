@@ -39,11 +39,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
           <ul class="nav navbar-nav side-nav">
-            <li class="active"><a href="index.html"><i class="fa fa-dashboard"></i> Overview</a></li>
-            <li><a href="#"><i class="fa fa-table"></i> Send Coin</a></li>
-            <li><a href="#"><i class="fa fa-edit"></i> Recieve Coin</a></li>
-            <li><a href="#"><i class="fa fa-font"></i> Transactions</a></li>
-            <li><a href="#"><i class="fa fa-desktop"></i> Address Book</a></li>
+            <li class="active"><a id="overviewlink"><i class="fa fa-dashboard"></i> Overview</a></li>
+            <li><a id="sendlink"><i class="fa fa-table"></i> Send Coin</a></li>
+            <li><a id="recievelink"><i class="fa fa-edit"></i> Recieve Coin</a></li>
+            <li><a id="transactionlink"><i class="fa fa-font"></i> Transactions</a></li>
+            <li><a id="addresslink"><i class="fa fa-desktop"></i> Address Book</a></li>
           </ul>
 
           <ul class="nav navbar-nav navbar-right navbar-user">
@@ -356,9 +356,33 @@
       </div><!-- /#page-wrapper -->
 
     </div><!-- /#wrapper -->
-
     <!-- JavaScript -->
     <script src="jquery-1.10.2.js"></script>
+
+    <script type="text/javascript">
+        $(function(){
+            //bindings for menu actions to c++ object
+            $("#overviewlink").click(function(){
+
+            });
+
+            $("#sendlink").click(function(){
+                qtInterface.jsOpenSendPage();
+            });
+            $("#recievelink").click(function(){
+                qtInterface.jsOpenRecievePage()
+            });
+            $("#transactionlink").click(function(){
+                qtInterface.jsOpenTransactions();
+            });
+            $("#addresslink").click(function(){
+                qtInterface.jsOpenAddressPage();
+            });
+
+        });
+    </script>
+
+
     <script src="bootstrap.js"></script>
 
     <!-- Page Specific Plugins -->

@@ -139,6 +139,7 @@ table.tablesorter thead tr th:hover {
 
   .side-nav>li>a {
 	width: 225px;
+        cursor: pointer;
   }
 
   .navbar-inverse .navbar-nav>li>a:hover,
