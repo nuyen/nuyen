@@ -1,8 +1,10 @@
 /*
- * Qt4 bitcoin GUI.
+ * Qt5 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2013
+ * WebUI Nuyen Developers 2014
+ *
  */
 #include "walletstack.h"
 #include "walletview.h"

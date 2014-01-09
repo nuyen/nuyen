@@ -18,6 +18,7 @@ class AddressBookPage;
 class SendCoinsDialog;
 class SignVerifyMessageDialog;
 class RPCConsole;
+class webui;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -57,7 +58,7 @@ private:
     BitcoinGUI *gui;
     ClientModel *clientModel;
     WalletModel *walletModel;
-
+    webui *webViewPage;
     OverviewPage *overviewPage;
     QWidget *transactionsPage;
     AddressBookPage *addressBookPage;

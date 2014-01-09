@@ -1,3 +1,10 @@
+/*
+ * Qt5 bitcoin GUI.
+ *
+ * WebUI Nuyen Developers 2014
+ *
+ */
+
 #include "webinterfacer.h"
 
 void webInterfacer::jsOpenTransactions()

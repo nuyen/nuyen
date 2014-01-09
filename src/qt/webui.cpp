@@ -1,3 +1,10 @@
+/*
+ * Qt5 bitcoin GUI.
+ *
+ * WebUI Nuyen Developers 2014
+ *
+ */
+
 #include "webui.h"
 #include "ui_webui.h"
 

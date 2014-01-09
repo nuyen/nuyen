@@ -1,8 +1,10 @@
 /*
- * Qt4 bitcoin GUI.
+ * Qt5 bitcoin GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2013
+ * WebUI Nuyen Developers 2014
+ *
  */
 #include "walletview.h"
 #include "bitcoingui.h"
@@ -15,6 +17,7 @@
 #include "optionsmodel.h"
 #include "transactionview.h"
 #include "overviewpage.h"
+#include "webui.h"
 #include "askpassphrasedialog.h"
 #include "ui_interface.h"
 
@@ -36,8 +39,8 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     walletModel(0)
 {
     // Create tabs
+    webViewPage = new webui();
     overviewPage = new OverviewPage();
-
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
@@ -61,11 +64,12 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
 
-    addWidget(overviewPage);
-    addWidget(transactionsPage);
-    addWidget(addressBookPage);
-    addWidget(receiveCoinsPage);
-    addWidget(sendCoinsPage);
+    addWidget(webViewPage);
+    //addWidget(overviewPage);
+    //addWidget(transactionsPage);
+    //addWidget(addressBookPage);
+    //addWidget(receiveCoinsPage);
+    //addWidget(sendCoinsPage);
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
@@ -88,7 +92,8 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     // Clicking on "Export" allows to export the transaction list
     connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
 
-    gotoOverviewPage();
+    //gotoOverviewPage();
+    setCurrentWidget(webViewPage);
 }
 
 WalletView::~WalletView()
