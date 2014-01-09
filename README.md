@@ -36,7 +36,6 @@ Features
 * Block Time
 * Reward Per Block
 * Difficulty
-* No Premine!
 
 Screens
 ========
