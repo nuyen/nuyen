@@ -45,6 +45,7 @@ Screens
 ![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-small.png)
 ![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-med.png)
 ![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-big.png)
+![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-alert.png)
 
 Copyright
 =========
