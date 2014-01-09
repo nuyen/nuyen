@@ -23,6 +23,11 @@ On 2 August 2036, Japan granted policy control of the nuyen to the Zurich-Orbita
 The Nuyen is accepted in virtually every country of the Sixth World and is the official currency of Australia, California, Denver, Japan, the Native American Nations, the Philippines, and Tir Tairngire.
 
 
+FAQ
+=========
+
+Another coin? : Yes, I wanted to make substancial wallet updates without forking anyone else's hardwork. Hopefully when complete other coins will borrow my code. Otherwise, hold on to your nuyen, because this is just the start of usability ideas.
+
 Features
 =========
 
@@ -37,6 +42,9 @@ Screens
 ========
 
 ![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-splash.png)
+![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-small.png)
+![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-med.png)
+![logo copyright hairbrain schemes](https://dl.dropboxusercontent.com/u/10409166/nuyen-big.png)
 
 Copyright
 =========
