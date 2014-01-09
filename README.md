@@ -31,9 +31,9 @@ Another coin? : Yes, I wanted to make substancial wallet updates without forking
 Features
 =========
 
-* Completely redesigned QT wallet.
+* Completely redesigned QT5 wallet.
 * Scrypt
-* Blocks
+* Block Time
 * Reward Per Block
 * Difficulty
 * No Premine!
