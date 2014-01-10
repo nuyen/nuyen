@@ -38,7 +38,7 @@ Features
 =========
 
 * Supply: 6.667 Trillion Nuyen
-* Redesigned QT5 wallet.
+* Redesigned QT5 wallet, introducing a new Web based UI
 * Scrypt
 * Block Time 5 Minutes
 * Reward Per Block 10,000 - doubling every 4 years.
