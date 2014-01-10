@@ -36,7 +36,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="walletBalance"></a>
+          <a class="navbar-brand" id="walletBalance">0.00 NYN</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -102,11 +102,11 @@
               <div class="panel-heading">
                 <div class="row">
                   <div class="col-xs-6">
-                    <i class="fa fa-comments fa-5x"></i>
+                    <i class="fa fa-download fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">456</p>
-                    <p class="announcement-text">New Mentions!</p>
+                    <p class="announcement-heading">11</p>
+                    <p class="announcement-text">New Transactions!</p>
                   </div>
                 </div>
               </div>
@@ -114,7 +114,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      View Mentions
+                      Review Transactions
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -132,8 +132,8 @@
                     <i class="fa fa-check fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">12</p>
-                    <p class="announcement-text">To-Do Items</p>
+                    <p class="announcement-heading">0</p>
+                    <p class="announcement-text">Unconfirmed Transactions</p>
                   </div>
                 </div>
               </div>
@@ -141,7 +141,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Complete Tasks
+                      Review Transactions
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -159,8 +159,8 @@
                     <i class="fa fa-tasks fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">18</p>
-                    <p class="announcement-text">Crawl Errors</p>
+                    <p class="announcement-heading">24</p>
+                    <p class="announcement-text">Kilohash Per Second</p>
                   </div>
                 </div>
               </div>
@@ -168,7 +168,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Fix Issues
+                      Mining Options
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -186,8 +186,8 @@
                     <i class="fa fa-comments fa-5x"></i>
                   </div>
                   <div class="col-xs-6 text-right">
-                    <p class="announcement-heading">56</p>
-                    <p class="announcement-text">New Orders!</p>
+                    <p class="announcement-heading">12.1</p>
+                    <p class="announcement-text">Difficulty Level</p>
                   </div>
                 </div>
               </div>
@@ -195,7 +195,7 @@
                 <div class="panel-footer announcement-bottom">
                   <div class="row">
                     <div class="col-xs-6">
-                      Complete Orders
+                      Review Trends
                     </div>
                     <div class="col-xs-6 text-right">
                       <i class="fa fa-arrow-circle-right"></i>
@@ -211,7 +211,7 @@
           <div class="col-lg-12">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Traffic Statistics: October 1, 2013 - October 31, 2013</h3>
+                <h3 class="panel-title"><i class="fa fa-bar-chart-o"></i> Network Hash Rate</h3>
               </div>
               <div class="panel-body">
                 <div id="morris-chart-area"></div>
@@ -367,7 +367,7 @@
         $(function(){
 
             //update some of the balances
-            var balance = qtInterface.balance ? qtInterface.balance : "0.00 NYN";
+            var balance = qtInterface.balance ? qtInterface.balance : "N/A";
             $("#walletBalance").text(balance);
 
 

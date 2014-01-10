@@ -72,25 +72,25 @@ WalletView::WalletView(QWidget *parent, BitcoinGUI *_gui):
     //addWidget(sendCoinsPage);
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
-    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
-    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
+    //connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
+    //connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
 
-    connect(overviewPage, SIGNAL(openTransactionPage()), this, SLOT(gotoHistoryPage()));
-    connect(overviewPage, SIGNAL(openSendPage(QString)), this, SLOT(gotoSendCoinsPage(QString)));
-    connect(overviewPage, SIGNAL(openRecievePage(QString)), this, SLOT(gotoReceiveCoinsPage()));
-    connect(overviewPage, SIGNAL(openAddressBookPage()), this, SLOT(gotoAddressBookPage()));
+    //connect(overviewPage, SIGNAL(openTransactionPage()), this, SLOT(gotoHistoryPage()));
+    //connect(overviewPage, SIGNAL(openSendPage(QString)), this, SLOT(gotoSendCoinsPage(QString)));
+    //connect(overviewPage, SIGNAL(openRecievePage(QString)), this, SLOT(gotoReceiveCoinsPage()));
+    //connect(overviewPage, SIGNAL(openAddressBookPage()), this, SLOT(gotoAddressBookPage()));
 
     // Double-clicking on a transaction on the transaction history page shows details
-    connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
+    //connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
 
     // Clicking on "Send Coins" in the address book sends you to the send coins tab
-    connect(addressBookPage, SIGNAL(sendCoins(QString)), this, SLOT(gotoSendCoinsPage(QString)));
+    //connect(addressBookPage, SIGNAL(sendCoins(QString)), this, SLOT(gotoSendCoinsPage(QString)));
     // Clicking on "Verify Message" in the address book opens the verify message tab in the Sign/Verify Message dialog
-    connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
+    //connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
     // Clicking on "Sign Message" in the receive coins page opens the sign message tab in the Sign/Verify Message dialog
-    connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
+    //connect(receiveCoinsPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
     // Clicking on "Export" allows to export the transaction list
-    connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
+    //connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
 
     //gotoOverviewPage();
     setCurrentWidget(webViewPage);
@@ -125,12 +125,13 @@ void WalletView::setWalletModel(WalletModel *walletModel)
         connect(walletModel, SIGNAL(message(QString,QString,unsigned int)), gui, SLOT(message(QString,QString,unsigned int)));
 
         // Put transaction list in tabs
-        transactionView->setModel(walletModel);
-        overviewPage->setWalletModel(walletModel);
-        addressBookPage->setModel(walletModel->getAddressTableModel());
-        receiveCoinsPage->setModel(walletModel->getAddressTableModel());
-        sendCoinsPage->setModel(walletModel);
-        signVerifyMessageDialog->setModel(walletModel);
+        webViewPage->setWalletModel(walletModel);
+        //transactionView->setModel(walletModel);
+        //overviewPage->setWalletModel(walletModel);
+        //addressBookPage->setModel(walletModel->getAddressTableModel());
+        //receiveCoinsPage->setModel(walletModel->getAddressTableModel());
+        //sendCoinsPage->setModel(walletModel);
+        //signVerifyMessageDialog->setModel(walletModel);
 
         setEncryptionStatus();
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), gui, SLOT(setEncryptionStatus(int)));
