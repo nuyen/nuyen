@@ -28,14 +28,21 @@ FAQ
 
 Another coin? : Yes, I wanted to make substancial wallet updates without forking anyone else's hardwork. Hopefully when complete other coins will borrow my code. Otherwise, hold on to your nuyen, because this is just the start of usability ideas.
 
+How many coins?: 6.667 Trillion Nuyen will be minted. We arrived at this number, following the ShadowRun lore. 
+
+"The nuyen has about the same buying power as a real life US dollar. This means that a good estimate for the cost of a basic item (clothes, meals, etc.) is a price in nuyen equal to the real world price in dollars."
+
+According to the Japanese central bank, the M2 money supply plus CD balances totaled 700.3 trillion yen. (http://www.boj.or.jp/en/stat/stat_f.htm). Assuming an exchange rate of 104.89 yen per dollar, the Japanese money supply was $6.677 trillion USD at the time of calculation.
+
 Features
 =========
 
-* Completely redesigned QT5 wallet.
+* Supply: 6.667 Trillion Nuyen
+* Redesigned QT5 wallet.
 * Scrypt
-* Block Time
-* Reward Per Block
-* Difficulty
+* Block Time 5 Minutes
+* Reward Per Block 10,000 - doubling every 4 years.
+* Difficulty Retarget 10 Minutes
 
 Screens
 ========
