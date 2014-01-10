@@ -43,6 +43,7 @@ Features
 * Block Time 5 Minutes
 * Reward Per Block 10,000 - doubling every 4 years.
 * Difficulty Retarget 10 Minutes
+* Automatic SeedNode detection
 
 Screens
 ========
